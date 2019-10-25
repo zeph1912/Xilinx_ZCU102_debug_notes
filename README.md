@@ -1,3 +1,5 @@
+# Xilinx ZCU102 debug notes
+
 ## Problem with PL helloworld and the board config fix
 
 The ZYNQ UltraScale+ ZCU102 is a cool FPGA board with a Cortex-A53 and a Cortex-R5. It is my first time to set my hands to an FPGA board. I started with a tutorial, https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug1209-embedded-design-tutorial.pdf, which guides through generating hardware layout with Xilinx Vivado (not PL), running a simple bootloader and helloworld program, and then building and running a Linux (on the Cortex hard cores). Our software versions are Ubuntu 18.04.3, Xilinx Vivado 2019.1.2, and Xilinx SDK 2019.1.
@@ -29,5 +31,6 @@ I'm now trying to have the Mailbox interrupt connected to the SoC IRQ interrupt,
 
 Examples I looked at, https://github.com/Xilinx/embeddedsw/blob/master/lib/bsp/standalone/src/profile/_profile_timer_hw.c.
 
-Solution: The problem is that the interrupt was connected to a wrong mailbox pin. I first replaced the mailbox with a fixed timer source, and my interrupt handler function gets called. I know something wrong with the mailbox, either the hardware design or the code. After some debugging, I found the mailbox has two interrupt outputs. I connected to the second one to Cortex IRQ, and it works! The mailbox seems to wire the interrupt 0 to the Microblaze.
+Solution: The problem is that the interrupt was connected to a wrong mailbox pin. I first replaced the mailbox with a fixed timer source, and my interrupt handler function gets called. I know something wrong with the mailbox, either the hardware design or the code (actually both). After some debugging, I fixed the problems in my code (see below), and I found a connection mistake. The mailbox has two interrupt outputs. I switch to the second mailbox interrupt pin instead of the first one, and it works! The mailbox seems to wire the interrupt 0 to the Microblaze.
 
+![code](./pic8.png)
