@@ -1,5 +1,27 @@
 # Xilinx ZCU102 debug notes
 
+MIT License
+
+Copyright (c) 2019 Zephyr Yao
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 ## Problem with PL helloworld and the board config fix
 
 The ZYNQ UltraScale+ ZCU102 is a cool FPGA board with a Cortex-A53 and a Cortex-R5. It is my first time to set my hands to an FPGA board. I started with a tutorial, https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug1209-embedded-design-tutorial.pdf, which guides through generating hardware layout with Xilinx Vivado (not PL), running a simple bootloader and helloworld program, and then building and running a Linux (on the Cortex hard cores). Our software versions are Ubuntu 18.04.3, Xilinx Vivado 2019.1.2, and Xilinx SDK 2019.1.
